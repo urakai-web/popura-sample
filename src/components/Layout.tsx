@@ -8,23 +8,9 @@ export default function Layout() {
     <div className="min-h-dvh flex flex-col">
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-popura-green/10">
         <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 no-underline">
-            <span className="text-2xl">🌳</span>
-            <span className="font-bold text-popura-green text-lg tracking-tight">
-              ぽぷら
-            </span>
+          <Link to="/" className="flex items-center no-underline">
+            <img src="/logo.png" alt="有限会社ぽぷら" className="h-10" />
           </Link>
-          <nav className="flex items-center gap-1">
-            <NavLink to="/" active={isHome}>
-              ホーム
-            </NavLink>
-            <a
-              href="tel:076-239-1022"
-              className="ml-2 bg-popura-orange text-white text-sm font-bold px-3 py-1.5 rounded-full no-underline hover:bg-popura-orange/90 transition-colors"
-            >
-              📞 電話
-            </a>
-          </nav>
         </div>
       </header>
 
@@ -36,6 +22,7 @@ export default function Layout() {
         <div className="max-w-5xl mx-auto px-4 py-8">
           <div className="flex flex-col items-center gap-4 text-center text-sm">
             <div>
+              <img src="/logo.png" alt="有限会社ぽぷら" className="h-12 mx-auto mb-2 brightness-0 invert" />
               <p className="font-bold text-base mb-1">有限会社ぽぷら</p>
               <p className="opacity-80">
                 〒920-0274 石川県河北郡内灘町字向粟崎3丁目43番地

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { businesses } from "../data/businesses";
+import { jobs } from "../data/jobs";
 
 export default function HomePage() {
   return (
@@ -67,70 +67,87 @@ export default function HomePage() {
         </div>
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4 -mx-0 scrollbar-hide md:max-w-5xl md:mx-auto">
           {businesses.map((biz) => (
-            <Link
+            <div
               key={biz.id}
-              to={`/business/${biz.id}`}
-              className="group snap-start shrink-0 w-[280px] bg-white rounded-2xl no-underline shadow-sm hover:shadow-md border border-gray-100 transition-all overflow-hidden active:scale-[0.98]"
+              className="group snap-start shrink-0 w-[280px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
               <div className="relative h-40 overflow-hidden">
                 <img
                   src={biz.image}
                   alt={biz.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
                 <span className="absolute top-3 left-3 text-xs font-bold text-white bg-popura-green/90 px-2.5 py-1 rounded-full backdrop-blur-sm">
                   {biz.category}
                 </span>
               </div>
               <div className="p-4">
-                <h3 className="text-base font-bold text-popura-brown leading-snug mb-1 group-hover:text-popura-green transition-colors">
+                <h3 className="text-base font-bold text-popura-brown leading-snug mb-1">
                   {biz.name}
                 </h3>
-                <p className="text-sm text-popura-brown/60 leading-relaxed mb-3">
+                <p className="text-sm text-popura-brown/60 leading-relaxed">
                   {biz.summary}
                 </p>
-                <span className="text-xs text-popura-green font-bold group-hover:underline">
-                  詳しく見る →
-                </span>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Recruit CTA */}
+      {/* Recruit cards - horizontal swipe */}
       <section className="py-10 md:py-16 bg-popura-orange-light">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-popura-brown mb-2">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-center text-2xl md:text-3xl font-bold text-popura-brown mb-2">
             採用情報
           </h2>
-          <div className="w-12 h-1 bg-popura-orange rounded-full mx-auto mb-6" />
-          <p className="text-popura-brown/70 mb-6 max-w-md mx-auto">
+          <div className="w-12 h-1 bg-popura-orange rounded-full mx-auto mb-2" />
+          <p className="text-center text-popura-brown/70 mb-8 max-w-md mx-auto text-sm">
             「楽しく・健康に・安全に」をモットーに、
             未経験の方も安心して働ける環境です。
           </p>
-          <div className="flex flex-wrap gap-2 justify-center mb-6">
-            {[
-              "児童デイサービス指導員",
-              "訪問介護ヘルパー",
-              "リハビリ介護補助",
-              "居宅介護支援専門員",
-              "相談支援専門員",
-            ].map((job) => (
-              <span
-                key={job}
-                className="text-xs bg-white text-popura-brown px-3 py-1.5 rounded-full"
-              >
-                {job}
-              </span>
-            ))}
-          </div>
-          <a
-            href="tel:076-239-1022"
-            className="inline-flex items-center justify-center gap-2 bg-popura-orange text-white font-bold px-6 py-3 rounded-full text-base no-underline hover:bg-popura-orange/90 transition-colors"
-          >
-            📞 採用のお問い合わせ
-          </a>
+        </div>
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide md:max-w-5xl md:mx-auto">
+          {jobs.map((job) => (
+            <div
+              key={job.id}
+              className="snap-start shrink-0 w-[300px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+            >
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src={job.image}
+                  alt={job.title}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute top-3 left-3 text-xs font-bold text-white bg-popura-orange/90 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                  {job.type}
+                </span>
+              </div>
+              <div className="p-4 space-y-3">
+                <h3 className="text-base font-bold text-popura-brown leading-snug">
+                  {job.title}
+                </h3>
+                <p className="text-sm text-popura-brown/60 leading-relaxed">
+                  {job.description}
+                </p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xs text-popura-brown/50">給与</span>
+                  <span className="text-sm font-bold text-popura-orange">
+                    {job.salary}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {job.qualifications.map((q) => (
+                    <span
+                      key={q}
+                      className="text-[11px] bg-popura-orange-light text-popura-brown/70 px-2 py-0.5 rounded-full"
+                    >
+                      {q}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
