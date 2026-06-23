@@ -5,37 +5,34 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-popura-green-light to-popura-cream">
-        <div className="max-w-5xl mx-auto px-4 py-12 md:py-20 text-center">
-          <p className="text-popura-green font-bold text-sm tracking-widest mb-3">
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-28 text-center">
+          <p className="text-white/90 font-bold text-sm tracking-widest mb-3">
             石川県河北郡内灘町
           </p>
-          <h1 className="text-3xl md:text-5xl font-bold text-popura-brown leading-tight mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-4 drop-shadow-lg">
             住み慣れた地域で
             <br />
             安心して暮らせる
             <br />
             お手伝いをします
           </h1>
-          <p className="text-popura-brown/70 text-base md:text-lg max-w-md mx-auto mb-8">
+          <p className="text-white/80 text-base md:text-lg max-w-md mx-auto mb-8">
             訪問介護・通所介護・児童デイサービス・相談支援。
             <br className="hidden md:block" />
             地域に根ざした福祉サービスを提供しています。
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="tel:076-239-1022"
-              className="inline-flex items-center justify-center gap-2 bg-popura-orange text-white font-bold px-6 py-3 rounded-full text-base no-underline hover:bg-popura-orange/90 transition-colors shadow-lg shadow-popura-orange/20"
-            >
-              📞 076-239-1022
-            </a>
-            <a
-              href="#businesses"
-              className="inline-flex items-center justify-center gap-2 bg-white text-popura-green font-bold px-6 py-3 rounded-full text-base no-underline hover:bg-popura-green-light transition-colors border border-popura-green/20"
-            >
-              事業所を見る ↓
-            </a>
-          </div>
+          <a
+            href="#businesses"
+            className="inline-flex items-center justify-center gap-2 bg-white/90 text-popura-green font-bold px-6 py-3 rounded-full text-base no-underline hover:bg-white transition-colors backdrop-blur-sm"
+          >
+            事業所を見る ↓
+          </a>
         </div>
       </section>
 
@@ -57,68 +54,47 @@ export default function HomePage() {
               お子さまからご高齢の方まで安心して暮らせる地域づくりに取り組んでいます。
             </p>
           </div>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-xl mx-auto text-center">
-            <Stat label="設立" value="2004年" />
-            <Stat label="従業員数" value="30名" />
-            <Stat label="事業所" value="5拠点" />
-            <Stat label="施設" value="3施設" />
-          </div>
         </div>
       </section>
 
-      {/* News */}
-      <section className="py-10 md:py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-popura-brown mb-2">
-            お知らせ
-          </h2>
-          <div className="w-12 h-1 bg-popura-green rounded-full mx-auto mb-6" />
-          <ul className="max-w-2xl mx-auto space-y-3">
-            <NewsItem date="2026.03" text="R7年度 評価結果を掲載しました" />
-            <NewsItem
-              date="2023.01"
-              text="入浴介助サービスを開始しました"
-            />
-          </ul>
-        </div>
-      </section>
-
-      {/* Business cards */}
+      {/* Business cards - horizontal swipe */}
       <section id="businesses" className="py-10 md:py-16 scroll-mt-16">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-center text-2xl md:text-3xl font-bold text-popura-brown mb-2">
-            事業所一覧
+            事業一覧
           </h2>
           <div className="w-12 h-1 bg-popura-green rounded-full mx-auto mb-8" />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {businesses.map((biz) => (
-              <Link
-                key={biz.id}
-                to={`/business/${biz.id}`}
-                className="group block bg-white rounded-2xl p-5 no-underline shadow-sm hover:shadow-md border border-gray-100 transition-all hover:-translate-y-0.5 active:scale-[0.98]"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-3xl shrink-0 mt-0.5">{biz.icon}</span>
-                  <div className="min-w-0">
-                    <span className="inline-block text-xs font-bold text-popura-green bg-popura-green-light px-2 py-0.5 rounded-full mb-1.5">
-                      {biz.category}
-                    </span>
-                    <h3 className="text-base font-bold text-popura-brown leading-snug mb-1 group-hover:text-popura-green transition-colors">
-                      {biz.name}
-                    </h3>
-                    <p className="text-sm text-popura-brown/60 leading-relaxed">
-                      {biz.summary}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-3 text-right">
-                  <span className="text-xs text-popura-green font-bold group-hover:underline">
-                    詳しく見る →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+        </div>
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4 -mx-0 scrollbar-hide md:max-w-5xl md:mx-auto">
+          {businesses.map((biz) => (
+            <Link
+              key={biz.id}
+              to={`/business/${biz.id}`}
+              className="group snap-start shrink-0 w-[280px] bg-white rounded-2xl no-underline shadow-sm hover:shadow-md border border-gray-100 transition-all overflow-hidden active:scale-[0.98]"
+            >
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={biz.image}
+                  alt={biz.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span className="absolute top-3 left-3 text-xs font-bold text-white bg-popura-green/90 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                  {biz.category}
+                </span>
+              </div>
+              <div className="p-4">
+                <h3 className="text-base font-bold text-popura-brown leading-snug mb-1 group-hover:text-popura-green transition-colors">
+                  {biz.name}
+                </h3>
+                <p className="text-sm text-popura-brown/60 leading-relaxed mb-3">
+                  {biz.summary}
+                </p>
+                <span className="text-xs text-popura-green font-bold group-hover:underline">
+                  詳しく見る →
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -184,27 +160,7 @@ export default function HomePage() {
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-2xl md:text-3xl font-bold text-popura-green">
-        {value}
-      </p>
-      <p className="text-xs text-popura-brown/60 mt-0.5">{label}</p>
-    </div>
-  );
-}
 
-function NewsItem({ date, text }: { date: string; text: string }) {
-  return (
-    <li className="flex items-start gap-3 py-3 border-b border-gray-100 last:border-0">
-      <span className="text-xs font-bold text-popura-green bg-popura-green-light px-2 py-0.5 rounded-full shrink-0 mt-0.5">
-        {date}
-      </span>
-      <span className="text-sm text-popura-brown/80">{text}</span>
-    </li>
-  );
-}
 
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (

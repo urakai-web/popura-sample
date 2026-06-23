@@ -3,6 +3,7 @@ export type Business = {
   name: string;
   category: string;
   icon: string;
+  image: string;
   summary: string;
   description: string;
   address?: string;
@@ -20,6 +21,7 @@ export const businesses: Business[] = [
     name: "リハビリステーション金沢きらら",
     category: "通所介護",
     icon: "🏋️",
+    image: "/biz-tusho.jpg",
     summary: "専用マシンと理学療法士による個別機能訓練",
     description:
       "教育を受けたスタッフが専用のマシンを用いた運動、集団での体操、理学療法士による個別機能訓練等を提供しています。要介護度の改善・維持を目指し、介護予防・日常生活支援総合事業、自費サービスにも対応しています。",
@@ -36,6 +38,7 @@ export const businesses: Business[] = [
     name: "ヘルパーステーション ぽぷら",
     category: "訪問介護",
     icon: "🏠",
+    image: "/biz-houmon.png",
     summary: "ご自宅での身体介護と生活援助",
     description:
       "ホームヘルパーがご自宅を訪問し、身体介護と生活援助を提供いたします。介護予防・日常生活支援総合事業・自費サービスも実施しています。",
@@ -52,6 +55,7 @@ export const businesses: Business[] = [
     name: "児童デイサービス",
     category: "放課後等デイサービス・児童発達支援",
     icon: "🧒",
+    image: "/biz-jidou.jpg",
     summary: "18歳未満の障がいのあるお子様への支援",
     description:
       "18歳未満の障がいのあるお子様を対象に、送迎、入浴、宿題支援、おやつ作り、公共交通利用体験、買い物体験などを提供しています。3施設（きらら・なぎさ・かがやき）で展開中です。",
@@ -68,6 +72,7 @@ export const businesses: Business[] = [
     name: "ぽぷらなぎさ相談支援事業所",
     category: "相談支援",
     icon: "💬",
+    image: "/biz-soudan.jpg",
     summary: "障がいのある方とご家族の相談窓口",
     description:
       "障がいのある方やそのご家族向けの相談窓口です。サービス等利用計画の作成と事業者連携を実施しています。",
@@ -84,6 +89,7 @@ export const businesses: Business[] = [
     name: "ぽぷら居宅介護支援事業所",
     category: "居宅介護支援",
     icon: "📋",
+    image: "/biz-kyotaku.jpg",
     summary: "ケアマネージャーによるケアプラン作成",
     description:
       "ケアマネージャーがケアプランを作成し、利用者様が可能な限り住み慣れたご自宅や地域で自立した日常生活を送ることができるよう支援いたします。",

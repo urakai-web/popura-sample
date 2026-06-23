@@ -20,3 +20,11 @@ body {
   color: var(--color-popura-brown);
   background-color: var(--color-popura-cream);
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
