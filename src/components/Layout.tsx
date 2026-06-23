@@ -1,9 +1,6 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Layout() {
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
-
   return (
     <div className="min-h-dvh flex flex-col">
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-popura-green/10">
@@ -49,28 +46,5 @@ export default function Layout() {
         </div>
       </footer>
     </div>
-  );
-}
-
-function NavLink({
-  to,
-  active,
-  children,
-}: {
-  to: string;
-  active: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      to={to}
-      className={`text-sm px-3 py-1.5 rounded-full no-underline transition-colors ${
-        active
-          ? "bg-popura-green-light text-popura-green font-bold"
-          : "text-popura-brown hover:bg-gray-100"
-      }`}
-    >
-      {children}
-    </Link>
   );
 }
