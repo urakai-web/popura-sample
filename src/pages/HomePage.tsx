@@ -65,11 +65,11 @@ export default function HomePage() {
           </h2>
           <div className="w-12 h-1 bg-popura-green rounded-full mx-auto mb-8" />
         </div>
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4 -mx-0 scrollbar-hide md:max-w-5xl md:mx-auto">
+        <div className="flex gap-4 overflow-x-auto scroll-smooth px-4 pb-4 -mx-0 scrollbar-hide md:max-w-5xl md:mx-auto">
           {businesses.map((biz) => (
             <div
               key={biz.id}
-              className="group snap-start shrink-0 w-[280px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+              className="group shrink-0 w-[280px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
               <div className="relative h-40 overflow-hidden">
                 <img
@@ -106,11 +106,11 @@ export default function HomePage() {
             未経験の方も安心して働ける環境です。
           </p>
         </div>
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide md:max-w-5xl md:mx-auto">
+        <div className="flex gap-4 overflow-x-auto scroll-smooth px-4 pb-4 scrollbar-hide md:max-w-5xl md:mx-auto">
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="snap-start shrink-0 w-[300px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+              className="shrink-0 w-[300px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
               <div className="relative h-44 overflow-hidden">
                 <img
